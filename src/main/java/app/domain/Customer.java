@@ -29,6 +29,5 @@ public class Customer {
         builder.append("Cart:");
         cart.forEach(x -> builder.append(" ").append(x.getTitle()));
         return builder.toString();
-
     }
 }
