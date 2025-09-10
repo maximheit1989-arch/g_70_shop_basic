@@ -13,11 +13,8 @@ import java.util.List;
 public class CustomerService {
 
     private final CustomerRepository repository = new CustomerRepository();
-    private final ProductService productService;
+    private final ProductService productService = ProductService.getInstance();
 
-    public CustomerService(ProductService productService) {
-        this.productService = productService;
-    }
     // Функционал сервиса покупателей:
 
     // Сохранить покупателя в базе данных (при сохранении покупатель автоматически считается активным).
