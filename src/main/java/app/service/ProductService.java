@@ -17,7 +17,24 @@ import java.util.List;
  */
 public class ProductService {
 
+    // Статическое поле, которое содержит объект этого же класса.
+    private static ProductService instance;
+
     private final ProductRepository repository = new ProductRepository();
+
+    // Приватным конструктором нельзя пользоваться за пределами класса.
+    private ProductService() {
+    }
+
+    // Метод, который возвращает объект продуктового сервиса.
+    // Если объект не был создан ранее, метод его создаёт,
+    // Если объект уже создался ранее, метод возвращает этот ранее созданный объект.
+    // Этот паттерн называется Singleton.
+    public static ProductService getInstance() {
+        if (instance == null) {
+            instance = new ProductService();
+        } return instance;
+    }
 
     //  Функционал сервиса продуктов:
 

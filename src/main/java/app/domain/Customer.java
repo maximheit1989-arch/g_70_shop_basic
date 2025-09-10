@@ -6,15 +6,21 @@ import java.util.Objects;
 
 public class Customer {
 
+    // Поля
     private Long id;
     private String name;
     private boolean active;
     private List<Product> cart = new ArrayList<>();
 
+    // Конструктор
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    // Геттеры и Сеттеры:
     public void setId(long id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -36,6 +42,7 @@ public class Customer {
         return cart;
     }
 
+    // Equals:
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -43,11 +50,13 @@ public class Customer {
         return id == customer.id && active == customer.active && Objects.equals(name, customer.name) && Objects.equals(cart, customer.cart);
     }
 
+    // Hashcode:
     @Override
     public int hashCode() {
         return Objects.hash(id, name, active, cart);
     }
 
+    // toString:
     @Override
     public String toString() {
         String info = String.format("Customer: id - %d, name - %s, active - %s%n", id, name, active ? "yes" : "no");

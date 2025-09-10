@@ -8,20 +8,25 @@ import java.util.Objects;
  */
 public class Product {
 
+    // Поля:
     private Long id;
     private String title;
     private double price;
     private boolean active;
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return Double.compare(price, product.price) == 0 && active == product.active && Objects.equals(id, product.id) && Objects.equals(title, product.title);
+    // Конструктор:
+    public Product(String title, double price) {
+        this.title = title;
+        this.price = price;
     }
 
+    // Геттеры и Сеттеры:
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Long getId() {
@@ -40,6 +45,7 @@ public class Product {
         this.price = price;
     }
 
+
     public boolean isActive() {
         return active;
     }
@@ -48,11 +54,20 @@ public class Product {
         this.active = active;
     }
 
+    // Equals и Hashcode:
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(price, product.price) == 0 && active == product.active && Objects.equals(id, product.id) && Objects.equals(title, product.title);
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, title, price, active);
     }
 
+    // toString:
     @Override
     public String toString() {
         return String.format("Product: id - %d, title - %s, price - %.2f, active - %s", id, title, price, active ? "yes" : "no");
