@@ -14,7 +14,7 @@ public class ProductController {
     private final ProductService service = ProductService.getInstance();
 
     // Сохранить продукт в базе данных (при сохранении продукт автоматически считается активным).
-    public Product save(String title, double price) {
+    public Product safe(String title, double price) {
         Product product = new Product(title, price);
         return service.save(product);
     }
