@@ -1,21 +1,39 @@
 package app.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Customer {
 
-    private long id;
+    private Long id;
     private String name;
     private boolean active;
-    private List<Product> cart;
+    private List<Product> cart = new ArrayList<>();
 
     public void setId(long id) {
         this.id = id;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public List<Product> getCart() {
+        return cart;
     }
 
     @Override
